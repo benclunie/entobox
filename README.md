@@ -1,18 +1,16 @@
-# Modern Entomology Collection 🐞
+# Virtual Entomology Collection 
 
-A sophisticated web application designed to replace traditional physical insect collection assignments. This tool allows students to digitally collect, process, pin, and label insect specimens in a scientifically accurate virtual environment.
+A web application designed as a stand-in to traditional physical insect collection assignments. This tool allows students to digitally collect, process, 'pin', and label insect specimens in a scientifically accurate virtual environment.
 
-![App Screenshot](https://images.unsplash.com/photo-1535083783855-76462b20eecf?q=80&w=1000&auto=format&fit=crop)
+## Overview
 
-## 🎓 Overview
-
-This application provides a digital alternative to the "10-insect collection" assignment. It eliminates the ethical concerns and logistical challenges of physical collection while maintaining the pedagogical value of taxonomy, identification, and curation.
+This application provides a digital alternative to an insect collection assignment. It eliminates the ethical concerns and logistical challenges of physical collection while maintaining the value of taxonomy, identification, and curation. This approach has limitations! Traditional taxonomic skills are a crucial part of entomology and collecting, pinning, labelling and recording are part and parcel of that. This is a starting point and a springboard for ethical discussion. 
 
 ### Key Features
 *   **Virtual Pinning Studio:** Upload photos and place a virtual pin specifically on the thorax/notum.
 *   **Image Processing:** Built-in tools to crop, rotate, and remove backgrounds (Magic Wand & Brush) for professional-looking specimens.
 *   **Taxonomic Data Entry:** Fields for Order, Family, Genus, Species, and evolutionary history.
-*   **Multi-Drawer Management:** Organize specimens into multiple drawers with custom names.
+*   **Multi-Drawer Management:** Organise specimens into multiple drawers with custom names.
 *   **Local Persistence:** Data is stored automatically in the browser, with JSON export options for backup and submission.
 *   **Instructor Mode:** A dedicated admin interface for grading student submissions.
 
@@ -33,7 +31,7 @@ This application provides a digital alternative to the "10-insect collection" as
 4.  **Edit Image:** Use the "Open Studio" tool to:
     *   **Frame:** Rotate and crop the image.
     *   **Clean Up:** Use the "Auto Remove" (Magic Wand) or "Highlight Remove" (Brush) to remove the background.
-5.  **Pinning:** Click on the thorax of the insect to place the virtual pin.
+5.  **Pinning:** Click on the appropriate part of the insect to place the virtual pin.
 6.  **Taxonomy:** Fill in the classification details (Phylum, Class, Order, etc.) and collection data (Date, Location).
 7.  **Save:** Click "Save Specimen" to add it to the drawer.
 
@@ -46,7 +44,7 @@ This application provides a digital alternative to the "10-insect collection" as
 
 ---
 
-## 🛡️ Instructor Grading Guide
+## Instructor Grading Guide
 
 ### Accessing Admin Mode
 1.  On the Login Screen, enter the Staff Credentials:
@@ -65,7 +63,7 @@ This application provides a digital alternative to the "10-insect collection" as
 
 ---
 
-## 💻 Technical Documentation
+## Technical Documentation
 
 ### Stack
 *   **Frontend:** React 18, TypeScript, Vite
@@ -86,31 +84,10 @@ This application provides a digital alternative to the "10-insect collection" as
 └── index.html          # Entry point
 ```
 
-### Local Development Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/entobox.git
-    cd entobox
-    ```
-
-2.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Run Development Server:**
-    ```bash
-    npm run dev
-    ```
 
 ### Deployment (GitHub Pages)
 
 This project is configured to deploy automatically via GitHub Actions.
-
-1.  Ensure your `vite.config.ts` has `base: './'`.
-2.  Push changes to the `main` branch.
-3.  The `.github/workflows/deploy.yml` action will build the project and deploy it to the `gh-pages` branch.
 4.  Go to **Settings > Pages** in your repository to see the live URL.
 
 ### Data Privacy Note
