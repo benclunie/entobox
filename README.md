@@ -84,31 +84,10 @@ This application provides a digital alternative to an insect collection assignme
 └── index.html          # Entry point
 ```
 
-### Local Development Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/entobox.git
-    cd entobox
-    ```
-
-2.  **Install Dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Run Development Server:**
-    ```bash
-    npm run dev
-    ```
 
 ### Deployment (GitHub Pages)
 
 This project is configured to deploy automatically via GitHub Actions.
-
-1.  Ensure your `vite.config.ts` has `base: './'`.
-2.  Push changes to the `main` branch.
-3.  The `.github/workflows/deploy.yml` action will build the project and deploy it to the `gh-pages` branch.
 4.  Go to **Settings > Pages** in your repository to see the live URL.
 
 ### Data Privacy Note
