@@ -510,18 +510,21 @@ export default function App() {
         </div>
       </header>
 
-      <main className="flex-1 overflow-y-auto p-4 md:p-12 flex flex-col items-center gap-8 bg-grid-pattern pb-32">
+      <main className="flex-1 overflow-y-auto w-full p-4 md:p-12 flex flex-col items-center gap-8 bg-grid-pattern pb-32">
         
         {drawers.map((drawer) => (
-            <div key={drawer.id} className="w-full max-w-7xl bg-white dark:bg-neutral-900 rounded-xl drawer-shadow border border-neutral-200 dark:border-neutral-800 relative overflow-hidden transition-all duration-300">
+            <div key={drawer.id} className="w-full max-w-7xl bg-white dark:bg-neutral-900 rounded-xl drawer-shadow border border-neutral-200 dark:border-neutral-800 relative transition-all duration-300">
               
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 dark:from-neutral-800 dark:via-neutral-700 dark:to-neutral-800 opacity-50"></div>
               
               {/* Drawer Header */}
-              <div className="p-6 md:p-8 md:pb-4 border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center group">
+              <div 
+                className="p-6 md:p-8 md:pb-4 border-b border-neutral-100 dark:border-neutral-800 flex justify-between items-center group cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors"
+                onClick={() => handleToggleDrawer(drawer.id)}
+              >
                 <div className="flex items-center gap-4 flex-1">
                     <button 
-                        onClick={() => handleToggleDrawer(drawer.id)}
+                        onClick={(e) => { e.stopPropagation(); handleToggleDrawer(drawer.id); }}
                         className="p-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition"
                     >
                         {drawer.isCollapsed ? <ChevronRight size={20} /> : <ChevronDown size={20} />}
@@ -544,7 +547,7 @@ export default function App() {
                 {!isAdmin && (
                     <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                          <button 
-                            onClick={() => handleDeleteDrawer(drawer.id)}
+                            onClick={(e) => { e.stopPropagation(); handleDeleteDrawer(drawer.id); }}
                             className="p-2 text-rose-300 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded transition"
                             title="Delete Drawer"
                         >
