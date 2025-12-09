@@ -6,6 +6,26 @@ import { Plus, Maximize2, Archive, Moon, Sun, Download, Upload, User, ArrowRight
 const ADMIN_ID = "STAFF_ADMIN"; // The "Staff Number" for admin access
 const ADMIN_PASS = "admin2024"; // Hardcoded Admin Password
 
+// Brand Logo Component with Fallback
+const BrandLogo = ({ size, className, isAdmin = false }: { size: number, className?: string, isAdmin?: boolean }) => {
+    const [error, setError] = useState(false);
+    
+    // If admin, keep the Shield icon unless specifically overridden, but request was to replace "box" icon (Archive)
+    if (isAdmin) return <ShieldCheck size={size} className={className} />;
+
+    if (error) return <Archive size={size} className={className} />;
+    
+    return (
+        <img 
+            src="./logo.png" 
+            alt="Entomology Logo" 
+            className={`object-contain transition-opacity duration-300 ${className}`}
+            style={{ width: size, height: size }}
+            onError={() => setError(true)}
+        />
+    );
+};
+
 export default function App() {
   // App State
   const [insects, setInsects] = useState<Insect[]>([]);
@@ -334,7 +354,7 @@ export default function App() {
               <div className="bg-white dark:bg-neutral-900 w-full max-w-md p-8 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-800 flex flex-col">
                   <div className="flex justify-center mb-6">
                       <div className="bg-indigo-600 p-4 rounded-xl shadow-lg transform rotate-3 hover:rotate-6 transition">
-                          <Archive size={40} className="text-white" />
+                          <BrandLogo size={40} className="text-white" />
                       </div>
                   </div>
                   <h1 className="text-2xl font-serif font-bold text-center text-neutral-800 dark:text-neutral-100 mb-1">Entomology Lab</h1>
@@ -429,7 +449,7 @@ export default function App() {
       <header className={`py-4 px-8 shadow-md z-10 flex flex-col md:flex-row justify-between items-center border-b gap-4 md:gap-0 transition-colors ${isAdmin ? 'bg-slate-800 border-slate-700' : 'bg-neutral-900 dark:bg-neutral-950 border-neutral-800'}`}>
         <div className="flex items-center gap-3 w-full md:w-auto">
             <div className={`p-2 rounded-lg shadow-lg hidden md:block ${isAdmin ? 'bg-amber-500 shadow-amber-900/50' : 'bg-indigo-600 shadow-indigo-900/50'}`}>
-                {isAdmin ? <ShieldCheck size={24} className="text-white" /> : <Archive size={24} className="text-white" />}
+                <BrandLogo size={24} className="text-white" isAdmin={isAdmin} />
             </div>
             <div className="flex-1">
                 {isAdmin ? (
